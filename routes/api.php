@@ -21,4 +21,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::apiResources([
     'users' => 'API\UserController',
     'tags' => 'API\TagController',
+    'categories' => 'API\CategoryController',
+    'posts' => 'API\PostController',
 ]);
