@@ -1,18 +1,22 @@
 require('./bootstrap');
 window.Vue = require('vue');
+// support moment
+//Support momments
+
+import {
+    filter
+} from './filter'
 
 // Support vue router
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
-const routes =
-[
-    {path: '/tag',component: require('./components/admin/TagComponent.vue').default},
-    {path: '/category',component: require('./components/admin/CategoryComponent.vue').default},
-]
+//import router
+import {routes} from './routes'
 
 const router = new VueRouter({
+    mode: 'history',
     routes // short for `routes: routes`
 })
 
@@ -63,6 +67,19 @@ window.Fire = new Vue();
 
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+
+
+// Vue.filter('upText', function (text) {
+//     return text.charAt(0).toUpperCase() + text.slice(1)
+// });
+
+// Vue.filter('timeFormat', (arg) => {
+//     return moment(arg).format("Do MMM YYYY");
+// });
+
+// Vue.filter('sortlength', function (text, length, suffix) {
+//     return text.substring(0, length) + suffix;
+// });
 
 
 const app = new Vue({

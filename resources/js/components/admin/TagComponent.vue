@@ -24,7 +24,7 @@
                             <tr v-for="(tag, index) in tags" :key="tag.id">
                                 <td>{{ index+1 }}</td>
                                 <td>{{ tag.name }}</td>
-                                <td>{{ tag.created_at }}</td>
+                                <td>{{ tag.created_at|timeFormat }}</td>
                                 <td>
                                      <a href="#" class="alert-link" @click="editModel(tag)"><i class="fa fa-edit" aria-hidden="true"></i></a>
                                      <a href="#" class="alert-link" @click="deleteTag(tag.id)"><i class="fa fa-trash" aria-hidden="true"></i></a>
@@ -107,6 +107,8 @@
                 },
                 newModel(){
                     this.editmode = false;
+                    this.form.reset()
+                    this.form.clear()
                     $('#addNew').modal('show')
                 },
                 deleteTag(id) {

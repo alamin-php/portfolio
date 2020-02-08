@@ -58,6 +58,7 @@
         </div>
         <div class="info">
         <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+        <p class="green">Access Lavel:  {{ ucfirst(Auth::user()->type) }}</p>
         </div>
       </div>
 
@@ -87,6 +88,14 @@
                 <i class="nav-icon fas fa-book"></i>
                 <p>
                     Category
+                </p>
+            </router-link>
+        </li>
+        <li class="nav-item">
+            <router-link to="/post" class="nav-link">
+                <i class="nav-icon fas fa-book-open"></i>
+                <p>
+                    Post
                 </p>
             </router-link>
         </li>

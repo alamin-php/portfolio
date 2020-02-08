@@ -15,7 +15,7 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>category name</th>
+                                <th>Category name</th>
                                 <th>Date</th>
                                 <th>Modify</th>
                             </tr>
@@ -24,7 +24,7 @@
                             <tr v-for="(category, index) in categories" :key="category.id">
                                 <td>{{ index+1 }}</td>
                                 <td>{{ category.name }}</td>
-                                <td>{{ category.created_at }}</td>
+                                <td>{{ category.created_at|timeFormat}}</td>
                                 <td>
                                      <a href="#" class="alert-link" @click="editModel(category)"><i class="fa fa-edit" aria-hidden="true"></i></a>
                                      <a href="#" class="alert-link" @click="deletecategory(category.id)"><i class="fa fa-trash" aria-hidden="true"></i></a>
@@ -107,6 +107,8 @@
                 },
                 newModel(){
                     this.editmode = false;
+                    this.form.reset()
+                    this.form.clear()
                     $('#addNew').modal('show')
                 },
                 deletecategory(id) {
