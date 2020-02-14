@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Service;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,4 +26,11 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function getService(){
+        $service = Service::latest()->get();
+        return $service;
+    }
+
+
 }

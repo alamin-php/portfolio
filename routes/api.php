@@ -23,4 +23,5 @@ Route::apiResources([
     'tags' => 'API\TagController',
     'categories' => 'API\CategoryController',
     'posts' => 'API\PostController',
+    'services' => 'API\ServicesController',
 ]);

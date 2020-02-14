@@ -68,37 +68,64 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
         <li class="nav-item">
-            <a href="#" class="nav-link">
+            <router-link to="/" class="nav-link" target="_blank">
+                <i class="nav-icon fab fa-internet-explorer green"></i>
+                <p>
+                    Website View
+                </p>
+            </router-link>
+        </li>
+        <li class="nav-item">
+            <router-link to="/home" class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
                     Dashboard
                 </p>
+            </router-link>
+        </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-blog orange"></i>
+              <p>
+                Website
+                <i class="right fas fa-angle-left"></i>
+              </p>
             </a>
-        </li>
-        <li class="nav-item">
-            <router-link to="/tag" class="nav-link">
-                <i class="nav-icon fas fa-tag"></i>
-                <p>
-                    Tag
-                </p>
-            </router-link>
-        </li>
-        <li class="nav-item">
-            <router-link to="/category" class="nav-link">
-                <i class="nav-icon fas fa-book"></i>
-                <p>
-                    Category
-                </p>
-            </router-link>
-        </li>
-        <li class="nav-item">
-            <router-link to="/post" class="nav-link">
-                <i class="nav-icon fas fa-book-open"></i>
-                <p>
-                    Post
-                </p>
-            </router-link>
-        </li>
+            <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <router-link to="/tag" class="nav-link">
+                    <i class="nav-icon fas fa-tag"></i>
+                    <p>
+                        Tag
+                    </p>
+                </router-link>
+            </li>
+            <li class="nav-item">
+                <router-link to="/category" class="nav-link">
+                    <i class="nav-icon fas fa-book"></i>
+                    <p>
+                        Category
+                    </p>
+                </router-link>
+            </li>
+            <li class="nav-item">
+                <router-link to="/post" class="nav-link">
+                    <i class="nav-icon fas fa-book-open"></i>
+                    <p>
+                        Post
+                    </p>
+                </router-link>
+            </li>
+            <li class="nav-item">
+                <router-link to="/service" class="nav-link">
+                    <i class="nav-icon fab fa-servicestack"></i>
+                    <p>
+                        Services
+                    </p>
+                </router-link>
+            </li>
+            </ul>
+          </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-cogs"></i>
@@ -109,10 +136,10 @@
             </a>
             <ul class="nav nav-treeview">
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <router-link to="/developer" class="nav-link">
                     <i class="fas fa-key nav-icon"></i>
                     <p>Passport Key</p>
-                </a>
+                </router-link>
             </li>
             <li class="nav-item">
                 <router-link to="/user" class="nav-link">
@@ -133,7 +160,7 @@
           <li class="nav-item">
               <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                  <i class="nav-icon fas fa-power-off"></i>
+                  <i class="nav-icon fas fa-power-off red"></i>
                   <p>{{ __('Logout') }}</p>
               </a>
               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

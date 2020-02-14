@@ -10,6 +10,16 @@ use App\Http\Controllers\Controller;
 class PostController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+    }
+    
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -47,7 +57,7 @@ class PostController extends Controller
         $post = new Post();
         $post->category_id = $request->category_id;
         $post->tag_id = $request->tag_id;
-        $post->user_id = $request->user_id;
+        $post->user_id = auth('api')->user()->id;
         $post->title = $request->title;
         $post->details = $request->details;
         $post->photo = $name;
@@ -105,7 +115,7 @@ class PostController extends Controller
 
         $post->category_id = $request->category_id;
         $post->tag_id = $request->tag_id;
-        $post->user_id = $request->user_id;
+        $post->user_id = auth('api')->user()->id;
         $post->title = $request->title;
         $post->details = $request->details;
         $post->photo = $name;
