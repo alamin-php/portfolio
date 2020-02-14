@@ -6,6 +6,7 @@ export let routes =
     {path: '/category',component: require('./components/admin/CategoryComponent.vue').default},
     {path: '/post',component: require('./components/admin/PostComponent.vue').default},
     {path: '/service',component: require('./components/admin/ServicesComponent.vue').default},
+    {path: '/testimonial',component: require('./components/admin/TestimonialsComponent.vue').default},
 
     // Front-End Routes
     {path: '/',component: require('./components/public/PublicHome.vue').default},

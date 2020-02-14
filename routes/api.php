@@ -24,4 +24,5 @@ Route::apiResources([
     'categories' => 'API\CategoryController',
     'posts' => 'API\PostController',
     'services' => 'API\ServicesController',
+    'testimonials' => 'API\TestimonialController',
 ]);

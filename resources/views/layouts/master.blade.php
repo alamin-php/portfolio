@@ -124,6 +124,14 @@
                     </p>
                 </router-link>
             </li>
+            <li class="nav-item">
+                <router-link to="/testimonial" class="nav-link">
+                    <i class="nav-icon fab fa-speakap"></i>
+                    <p>
+                        Testimonials
+                    </p>
+                </router-link>
+            </li>
             </ul>
           </li>
           <li class="nav-item has-treeview">

@@ -157,6 +157,33 @@
         
       </div>
     </div>
+
+    <div class="site-section bg-light">
+      <div class="container">
+
+        <div class="row mb-5">
+          <div class="col-md-7 mx-auto text-center">
+            <h2 class="heading-29190">Testimonials</h2>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6" v-for="testimonial in testimonials.slice(0, 3)" :key="testimonial.id">
+            
+            <div>
+              <div class="person-pic-39219 mb-4">
+                <img :src="getTestimPhoto(testimonial.photo)" alt="Image" class="img-fluid">
+              </div>  
+              
+              <blockquote class="quote_39823">
+                <p>{{ testimonial.details }}</p>
+              </blockquote>
+              <p>— {{ testimonial.name }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     
  <div class="site-section bg-white">
       <div class="container">
@@ -220,15 +247,30 @@
       data() {
         return {
             services: {},
+            testimonials: {},
         }
     },
     methods:{
+      getTestimPhoto(img) {
+          return "assets/admin/image/upload/" + img;
+      },
+      loadTestimonial() {
+          this.$Progress.start()
+          axios.get('/api/testimonials').then(({
+              data
+          }) => {
+              this.testimonials = data.data
+              this.$Progress.finish()
+          }).catch(() => {
+              this.$Progress.fail()
+          })
+      },
       loadService() {
           this.$Progress.start()
           axios.get('/api/services').then(({
               data
           }) => {
-              this.services = data
+              this.services = data.data
               this.$Progress.finish()
           }).catch(() => {
               this.$Progress.fail()
@@ -237,6 +279,7 @@
     },
     mounted() {
         this.loadService();
+        this.loadTestimonial(),
         Fire.$on('AfterCreate', () => {
             this.loadService();
         })
