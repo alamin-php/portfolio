@@ -3,7 +3,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
   <head>
-    <title>Mighty &mdash; Website Template by Colorlib</title>
+    <title>AmSoft &mdash; Website Developer</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
           <!-- CSRF Token -->
@@ -66,10 +66,10 @@
               <nav class="site-navigation text-right ml-auto d-none d-lg-none" role="navigation">
                 <ul class="site-menu main-menu js-clone-nav ml-auto ">
                   <li class="active"><router-link to="/" class="nav-link">Home</router-link></li>
-                  <li><a href="about.html" class="nav-link">About</a></li>
-                  <li><a href="work.html" class="nav-link">Work</a></li>
-                  <li><a href="journal.html" class="nav-link">Journal</a></li>
-                  <li><a href="contact.html" class="nav-link">Contact</a></li>
+                  <li><router-link to="/" class="nav-link">About</router-link></li>
+                  <li><router-link to="/" class="nav-link">Work</router-link></li>
+                  <li><router-link to="/" class="nav-link">Journal</router-link></li>
+                  <li><router-link to="/" class="nav-link">Contact</router-link></li>
                 </ul>
               </nav>
             </div>

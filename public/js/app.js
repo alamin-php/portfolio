@@ -66143,7 +66143,7 @@ var render = function() {
               { key: post.id, staticClass: "col-lg-4 col-md-6 mb-4" },
               [
                 _c("div", { staticClass: "post-entry-1 h-100" }, [
-                  _c("a", { attrs: { href: "single.html" } }, [
+                  _c("a", { attrs: { href: "#" } }, [
                     _c("img", {
                       staticClass: "img-fluid",
                       attrs: { src: _vm.getPostPhoto(post.photo), alt: "Image" }

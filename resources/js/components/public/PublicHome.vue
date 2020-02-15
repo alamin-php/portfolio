@@ -145,7 +145,7 @@
         <div class="row">
           <div class="col-lg-4 col-md-6 mb-4" v-for="post in posts" :key="post.id">
             <div class="post-entry-1 h-100">
-              <a href="single.html">
+              <a href="#">
                 <img :src="getPostPhoto(post.photo)" alt="Image"
                  class="img-fluid">
               </a>
