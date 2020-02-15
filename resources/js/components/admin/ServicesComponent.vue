@@ -31,7 +31,7 @@
                                 <td>{{ service.created_at|timeFormat}}</td>
                                 <td>
                                      <a href="#" class="alert-link" @click="editModel(service)"><i class="fa fa-edit" aria-hidden="true"></i></a>
-                                     <a href="#" class="alert-link" @click="deleteservice(service.id)"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                     <a href="#" class="alert-link" @click="deleteService(service.id)"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                 </td>
                             </tr>
                         </tbody>
@@ -130,7 +130,7 @@
                     this.form.clear()
                     $('#addNew').modal('show')
                 },
-                deleteservice(id) {
+                deleteService(id) {
                     Swal.fire({
                         title: 'Are you sure?',
                         text: "You won't be able to revert this!",

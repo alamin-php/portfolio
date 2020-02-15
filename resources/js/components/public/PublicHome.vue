@@ -75,7 +75,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6 col-lg-3" v-for="service in services.slice(0, 4)" :key="service.id">
+                    <div class="col-md-6 col-lg-3" v-for="service in services" :key="service.id">
                         <div class="service-29128 text-center">
                             <span class="d-block wrap-icon">
                                 <span class="icon-desktop_mac"></span>
@@ -168,7 +168,7 @@
         </div>
 
         <div class="row">
-          <div class="col-lg-4 col-md-6" v-for="testimonial in testimonials.slice(0, 3)" :key="testimonial.id">
+          <div class="col-lg-4 col-md-6" v-for="testimonial in testimonials | filterBy query | limit 3" :key="testimonial.id">
             
             <div>
               <div class="person-pic-39219 mb-4">
@@ -259,7 +259,7 @@
           axios.get('/api/testimonials').then(({
               data
           }) => {
-              this.testimonials = data.data
+              this.testimonials = data
               this.$Progress.finish()
           }).catch(() => {
               this.$Progress.fail()
@@ -270,7 +270,7 @@
           axios.get('/api/services').then(({
               data
           }) => {
-              this.services = data.data
+              this.services = data
               this.$Progress.finish()
           }).catch(() => {
               this.$Progress.fail()

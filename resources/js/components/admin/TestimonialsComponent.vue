@@ -224,7 +224,7 @@
                     axios.get('/api/testimonials').then(({
                         data
                     }) => {
-                        this.testimonials = data.data
+                        this.testimonials = data
                         this.$Progress.finish()
                     }).catch(() => {
                         this.$Progress.fail()

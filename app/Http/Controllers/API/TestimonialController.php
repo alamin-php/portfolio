@@ -16,7 +16,7 @@ class TestimonialController extends Controller
      */
     public function index()
     {
-        $testimonials = Testimonial::latest()->paginate(5);
+        $testimonials = Testimonial::latest()->get();
         return $testimonials;
     }
 
@@ -104,6 +104,13 @@ class TestimonialController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $testimonials = Testimonial::find($id);
+        $img_path = public_path() . '/assets/admin/image/upload/';
+        $image = $img_path . $testimonials->photo;
+        if (file_exists($image)) {
+            @unlink($image);
+        }
+        $testimonials->delete();
+        return $testimonials;
     }
 }
