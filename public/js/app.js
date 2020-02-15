@@ -4368,130 +4368,52 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       services: {},
-      testimonials: {}
+      testimonials: {},
+      posts: {}
     };
   },
   methods: {
+    getPostPhoto: function getPostPhoto(img) {
+      return "/assets/admin/image/post/" + img;
+    },
     getTestimPhoto: function getTestimPhoto(img) {
       return "assets/admin/image/upload/" + img;
     },
-    loadTestimonial: function loadTestimonial() {
+    loadPost: function loadPost() {
       var _this = this;
 
-      this.$Progress.start();
-      axios.get('/api/testimonials').then(function (_ref) {
+      axios.get('/api/posts').then(function (_ref) {
         var data = _ref.data;
-        _this.testimonials = data;
+        _this.posts = data;
+      });
+    },
+    loadTestimonial: function loadTestimonial() {
+      var _this2 = this;
 
-        _this.$Progress.finish();
-      })["catch"](function () {
-        _this.$Progress.fail();
+      axios.get('/api/testimonials').then(function (_ref2) {
+        var data = _ref2.data;
+        _this2.testimonials = data;
       });
     },
     loadService: function loadService() {
-      var _this2 = this;
+      var _this3 = this;
 
-      this.$Progress.start();
-      axios.get('/api/services').then(function (_ref2) {
-        var data = _ref2.data;
-        _this2.services = data;
-
-        _this2.$Progress.finish();
-      })["catch"](function () {
-        _this2.$Progress.fail();
+      axios.get('/api/services').then(function (_ref3) {
+        var data = _ref3.data;
+        _this3.services = data;
       });
     }
   },
   mounted: function mounted() {
-    var _this3 = this;
+    var _this4 = this;
 
     this.loadService();
-    this.loadTestimonial(), Fire.$on('AfterCreate', function () {
-      _this3.loadService();
+    this.loadTestimonial(), this.loadPost(), Fire.$on('AfterCreate', function () {
+      _this4.loadService();
     });
   }
 });
@@ -66131,8 +66053,375 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {}
-var staticRenderFns = []
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("span", { attrs: { id: "publichome" } }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "site-section bg-light" }, [
+      _c("div", { staticClass: "container" }, [
+        _vm._m(1),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "row" },
+          _vm._l(_vm.services, function(service) {
+            return _c(
+              "div",
+              { key: service.id, staticClass: "col-md-6 col-lg-3" },
+              [
+                _c("div", { staticClass: "service-29128 text-center" }, [
+                  _vm._m(2, true),
+                  _vm._v(" "),
+                  _c("h3", [_vm._v(_vm._s(service.title))]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      _vm._s(_vm._f("sortlength")(service.details, 100, " . ."))
+                    )
+                  ])
+                ])
+              ]
+            )
+          }),
+          0
+        )
+      ])
+    ]),
+    _vm._v(" "),
+    _vm._m(3),
+    _vm._v(" "),
+    _c("div", { staticClass: "site-section bg-light" }, [
+      _c("div", { staticClass: "container" }, [
+        _vm._m(4),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "row" },
+          _vm._l(_vm.testimonials, function(testimonial) {
+            return _c(
+              "div",
+              { key: testimonial.id, staticClass: "col-lg-4 col-md-6" },
+              [
+                _c("div", [
+                  _c("div", { staticClass: "person-pic-39219 mb-4" }, [
+                    _c("img", {
+                      staticClass: "img-fluid",
+                      attrs: {
+                        src: _vm.getTestimPhoto(testimonial.photo),
+                        alt: "Image"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("blockquote", { staticClass: "quote_39823" }, [
+                    _c("p", [_vm._v(_vm._s(testimonial.details))])
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("— " + _vm._s(testimonial.name))])
+                ])
+              ]
+            )
+          }),
+          0
+        )
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "site-section bg-white" }, [
+      _c("div", { staticClass: "container" }, [
+        _vm._m(5),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "row" },
+          _vm._l(_vm.posts, function(post) {
+            return _c(
+              "div",
+              { key: post.id, staticClass: "col-lg-4 col-md-6 mb-4" },
+              [
+                _c("div", { staticClass: "post-entry-1 h-100" }, [
+                  _c("a", { attrs: { href: "single.html" } }, [
+                    _c("img", {
+                      staticClass: "img-fluid",
+                      attrs: { src: _vm.getPostPhoto(post.photo), alt: "Image" }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "post-entry-1-contents" }, [
+                    _c("h2", [
+                      _c("a", { attrs: { href: "single.html" } }, [
+                        _vm._v(_vm._s(post.title))
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "meta d-inline-block mb-3" }, [
+                      _vm._v(
+                        _vm._s(_vm._f("timeFormat")(post.created_at)) + " "
+                      ),
+                      _c("span", { staticClass: "mx-2" }, [_vm._v("by")]),
+                      _vm._v(" "),
+                      _c("a", { attrs: { href: "#" } }, [
+                        _vm._v(_vm._s(post.user.name))
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v(_vm._s(post.details))])
+                  ])
+                ])
+              ]
+            )
+          }),
+          0
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "site-section bg-white" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row align-items-center" }, [
+          _c("div", { staticClass: "col-md-4" }, [
+            _c("h2", { staticClass: "h4 mb-4" }, [_vm._v("About Us")]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae voluptatem mollitia\n                           obcaecati\n                           quod maxime. Soluta libero eligendi voluptatum, natus debitis."
+              )
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, quasi!"
+              )
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _c(
+                "a",
+                {
+                  staticClass: "btn btn-primary text-white px-5",
+                  attrs: { href: "#" }
+                },
+                [_vm._v("Our works")]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-4" }, [
+            _c("img", {
+              staticClass: "img-fluid",
+              attrs: { src: "assets/public/images/about_1.jpg", alt: "Image" }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-4" }, [
+            _c("h2", { staticClass: "h4 mb-4" }, [
+              _vm._v("Our expertise and skills")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "progress-wrap mb-4" }, [
+              _c("div", { staticClass: "d-flex" }, [
+                _c("span", [_vm._v("Writing")]),
+                _vm._v(" "),
+                _c("span", { staticClass: "ml-auto" }, [_vm._v("55%")])
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "progress rounded-0",
+                  staticStyle: { height: "7px" }
+                },
+                [
+                  _c("div", {
+                    staticClass: "progress-bar",
+                    staticStyle: { width: "55%" },
+                    attrs: {
+                      role: "progressbar",
+                      "aria-valuenow": "55",
+                      "aria-valuemin": "0",
+                      "aria-valuemax": "100"
+                    }
+                  })
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "progress-wrap mb-4" }, [
+              _c("div", { staticClass: "d-flex" }, [
+                _c("span", [_vm._v("WordPress")]),
+                _vm._v(" "),
+                _c("span", { staticClass: "ml-auto" }, [_vm._v("85%")])
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "progress rounded-0",
+                  staticStyle: { height: "7px" }
+                },
+                [
+                  _c("div", {
+                    staticClass: "progress-bar",
+                    staticStyle: { width: "85%" },
+                    attrs: {
+                      role: "progressbar",
+                      "aria-valuenow": "85",
+                      "aria-valuemin": "0",
+                      "aria-valuemax": "100"
+                    }
+                  })
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "progress-wrap mb-4" }, [
+              _c("div", { staticClass: "d-flex" }, [
+                _c("span", [_vm._v("Bootstrap")]),
+                _vm._v(" "),
+                _c("span", { staticClass: "ml-auto" }, [_vm._v("93%")])
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "progress rounded-0",
+                  staticStyle: { height: "7px" }
+                },
+                [
+                  _c("div", {
+                    staticClass: "progress-bar",
+                    staticStyle: { width: "93%" },
+                    attrs: {
+                      role: "progressbar",
+                      "aria-valuenow": "93",
+                      "aria-valuemin": "0",
+                      "aria-valuemax": "100"
+                    }
+                  })
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "progress-wrap mb-4" }, [
+              _c("div", { staticClass: "d-flex" }, [
+                _c("span", [_vm._v("jQuery")]),
+                _vm._v(" "),
+                _c("span", { staticClass: "ml-auto" }, [_vm._v("83%")])
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "progress rounded-0",
+                  staticStyle: { height: "7px" }
+                },
+                [
+                  _c("div", {
+                    staticClass: "progress-bar",
+                    staticStyle: { width: "83%" },
+                    attrs: {
+                      role: "progressbar",
+                      "aria-valuenow": "83",
+                      "aria-valuemin": "0",
+                      "aria-valuemax": "100"
+                    }
+                  })
+                ]
+              )
+            ])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row mb-5" }, [
+      _c("div", { staticClass: "col-md-7 mx-auto text-center" }, [
+        _c("h2", { staticClass: "heading-29190" }, [_vm._v("Our Services")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "d-block wrap-icon" }, [
+      _c("span", { staticClass: "icon-desktop_mac" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "site-section bg-white" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row mb-5" }, [
+          _c("div", { staticClass: "col-md-7 mx-auto text-center" }, [
+            _c("h2", { staticClass: "heading-29190" }, [
+              _vm._v("See Our Studio")
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row justify-content-center" }, [
+          _c("div", { staticClass: "col-md-8" }, [
+            _c(
+              "a",
+              {
+                staticClass: "btn-video_38929",
+                attrs: {
+                  href: "https://vimeo.com/191947042",
+                  "data-fancybox": ""
+                }
+              },
+              [
+                _c("span", [_c("span", { staticClass: "icon-play" })]),
+                _vm._v(" "),
+                _c("img", {
+                  staticClass: "img-fluid",
+                  attrs: { src: "assets/public/images/img_1.jpg", alt: "Image" }
+                })
+              ]
+            )
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row mb-5" }, [
+      _c("div", { staticClass: "col-md-7 mx-auto text-center" }, [
+        _c("h2", { staticClass: "heading-29190" }, [_vm._v("Testimonials")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row mb-5" }, [
+      _c("div", { staticClass: "col-md-7 mx-auto text-center" }, [
+        _c("h2", { staticClass: "heading-29190" }, [_vm._v("Blog")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
 
 
 

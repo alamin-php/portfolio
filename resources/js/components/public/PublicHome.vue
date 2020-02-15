@@ -88,75 +88,24 @@
             </div>
         </div>
 
-        <div class="site-section bg-white">
-      <div class="container">
+      <div class="site-section bg-white">
+            <div class="container">
+              <div class="row mb-5">
+                <div class="col-md-7 mx-auto text-center">
+                  <h2 class="heading-29190">See Our Studio</h2>
+                </div>
+              </div>
+              <div class="row justify-content-center">
+                <div class="col-md-8">
 
-        <div class="row mb-5">
-          <div class="col-md-7 mx-auto text-center">
-            <h2 class="heading-29190">Our Works</h2>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-6 col-lg-4 mb-4">
-            <div class="item web">
-              <a href="work-single.html" class="item-wrap" data-fancybox="gal">
-                <span class="icon-add"></span>
-                <img class="img-fluid" src="assets/public/images/img_1.jpg">
-              </a>
+                  <a href="https://vimeo.com/191947042" data-fancybox="" class="btn-video_38929">
+                    <span><span class="icon-play"></span></span>
+                    <img src="assets/public/images/img_1.jpg" alt="Image" class="img-fluid">
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
-
-          <div class="col-md-6 col-lg-4 mb-4">
-            <div class="item web">
-              <a href="work-single.html" class="item-wrap" data-fancybox="gal">
-                <span class="icon-add"></span>
-                <img class="img-fluid" src="assets/public/images/img_2.jpg">
-              </a>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4 mb-4">
-            <div class="item web">
-              <a href="work-single.html" class="item-wrap" data-fancybox="gal">
-                <span class="icon-add"></span>
-                <img class="img-fluid" src="assets/public/images/img_3.jpg">
-              </a>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4 mb-4">
-            <div class="item web">
-              <a href="work-single.html" class="item-wrap" data-fancybox="gal">
-                <span class="icon-add"></span>
-                <img class="img-fluid" src="assets/public/images/img_4.jpg">
-              </a>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4 mb-4">
-            <div class="item web">
-              <a href="work-single.html" class="item-wrap" data-fancybox="gal">
-                <span class="icon-add"></span>
-                <img class="img-fluid" src="assets/public/images/img_5.jpg">
-              </a>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4 mb-4">
-            <div class="item web">
-              <a href="work-single.html" class="item-wrap" data-fancybox="gal">
-                <span class="icon-add"></span>
-                <img class="img-fluid" src="assets/public/images/img_6.jpg">
-              </a>
-            </div>
-          </div>
-
-        </div>
-
-        
-      </div>
-    </div>
 
     <div class="site-section bg-light">
       <div class="container">
@@ -168,7 +117,7 @@
         </div>
 
         <div class="row">
-          <div class="col-lg-4 col-md-6" v-for="testimonial in testimonials | filterBy query | limit 3" :key="testimonial.id">
+          <div class="col-lg-4 col-md-6" v-for="testimonial in testimonials" :key="testimonial.id">
             
             <div>
               <div class="person-pic-39219 mb-4">
@@ -194,46 +143,17 @@
         </div>
 
         <div class="row">
-          <div class="col-lg-4 col-md-6 mb-4">
+          <div class="col-lg-4 col-md-6 mb-4" v-for="post in posts" :key="post.id">
             <div class="post-entry-1 h-100">
               <a href="single.html">
-                <img src="assets/public/images/img_1.jpg" alt="Image"
+                <img :src="getPostPhoto(post.photo)" alt="Image"
                  class="img-fluid">
               </a>
               <div class="post-entry-1-contents">
                 
-                <h2><a href="single.html">Lorem ipsum dolor sit amet</a></h2>
-                <span class="meta d-inline-block mb-3">July 17, 2019 <span class="mx-2">by</span> <a href="#">Admin</a></span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores eos soluta, dolore harum molestias consectetur.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="post-entry-1 h-100">
-              <a href="single.html">
-                <img src="assets/public/images/img_2.jpg" alt="Image"
-                 class="img-fluid">
-              </a>
-              <div class="post-entry-1-contents">
-                
-                <h2><a href="single.html">Lorem ipsum dolor sit amet</a></h2>
-                <span class="meta d-inline-block mb-3">July 17, 2019 <span class="mx-2">by</span> <a href="#">Admin</a></span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores eos soluta, dolore harum molestias consectetur.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="post-entry-1 h-100">
-              <a href="single.html">
-                <img src="assets/public/images/img_3.jpg" alt="Image"
-                 class="img-fluid">
-              </a>
-              <div class="post-entry-1-contents">
-                
-                <h2><a href="single.html">Lorem ipsum dolor sit amet</a></h2>
-                <span class="meta d-inline-block mb-3">July 17, 2019 <span class="mx-2">by</span> <a href="#">Admin</a></span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores eos soluta, dolore harum molestias consectetur.</p>
+                <h2><a href="single.html">{{ post.title }}</a></h2>
+                <span class="meta d-inline-block mb-3">{{ post.created_at | timeFormat }} <span class="mx-2">by</span> <a href="#">{{ post.user.name }}</a></span>
+                <p>{{ post.details }}</p>
               </div>
             </div>
           </div>
@@ -248,38 +168,31 @@
         return {
             services: {},
             testimonials: {},
+            posts: {},
+            
         }
     },
     methods:{
+      getPostPhoto(img) {
+          return "/assets/admin/image/post/" + img;
+      },
       getTestimPhoto(img) {
           return "assets/admin/image/upload/" + img;
       },
+      loadPost() {
+          axios.get('/api/posts').then(({data}) => {this.posts = data})
+      },
       loadTestimonial() {
-          this.$Progress.start()
-          axios.get('/api/testimonials').then(({
-              data
-          }) => {
-              this.testimonials = data
-              this.$Progress.finish()
-          }).catch(() => {
-              this.$Progress.fail()
-          })
+          axios.get('/api/testimonials').then(({data}) => {this.testimonials = data})
       },
       loadService() {
-          this.$Progress.start()
-          axios.get('/api/services').then(({
-              data
-          }) => {
-              this.services = data
-              this.$Progress.finish()
-          }).catch(() => {
-              this.$Progress.fail()
-          })
+          axios.get('/api/services').then(({data}) => {this.services = data})
       },
     },
     mounted() {
         this.loadService();
         this.loadTestimonial(),
+        this.loadPost(),
         Fire.$on('AfterCreate', () => {
             this.loadService();
         })
